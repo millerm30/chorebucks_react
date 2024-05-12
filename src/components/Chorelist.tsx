@@ -19,19 +19,23 @@ const choresChoices = [
     value: "Clean Bedroom",
     id: 3 
   },
-  { label: "Wash Dishes", 
+  { 
+    label: "Wash Dishes", 
     value: "Wash Dishes",
     id: 4 
   },
-  { label: "Empty Dishwasher", 
+  { 
+    label: "Empty Dishwasher", 
     value: "Empty Dishwasher", 
     id: 5 
   },
-  { label: "Fold Laundry", 
+  { 
+    label: "Fold Laundry", 
     value: "Fold Laundry", 
     id: 6 
   },
-  { label: "Pickup Toys", 
+  { 
+    label: "Pickup Toys", 
     value: "Pickup Toys", 
     id: 7 
   },

@@ -22,7 +22,7 @@ const style = {
 
 const Cart = ({points}: {points: number}) => {
   const { cart, removeFromCartHandler, purchaseCartHandler, cartTotal, updateCartItem } = useContext(ShoppingContext);
-  const [isActive, setIsActive] = useState(false);
+  const [isActive, setIsActive] = useState<boolean>(false);
   return (
     <main className={style.mainContainer}>
       {isActive && (

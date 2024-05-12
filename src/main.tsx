@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
-import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Home } from './pages/Home.tsx'
 import { Chores } from './pages/Chores.tsx'
 import { Wishlist } from './pages/Wishlist.tsx'
@@ -28,49 +28,24 @@ export const RootComponent = () => {
     localStorage.setItem("points", points.toString());
   }, [points]);
 
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: (
-        <App
-          points={points}
-          addPoints={addPoints}
-          removePoints={removePoints}
-        />
-      ),
-      children: [
-        {
-          path: "/",
-          element: <Home />,
-        },
-        {
-          path: "/chores",
-          element: <Chores />,
-        },
-        {
-          path: "/wishlist",
-          element: <Wishlist />,
-        },
-        {
-          path: "/cart",
-          element: <Cart points={points} />,
-        },
-        {
-          path: "/choresadd",
-          element: <ChoresAddModal />,
-        },
-      ],
-    },
-  ]);
-
   return (
     <React.StrictMode>
       <UserProvider>
-        <RouterProvider router={router} />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<App points={points} addPoints={addPoints} removePoints={removePoints} />} >
+              <Route index element={<Home />} />
+              <Route path="/chores" element={<Chores />} />
+              <Route path="/wishlist" element={<Wishlist />} />
+              <Route path="/cart" element={<Cart points={points} />} />
+              <Route path="/choresadd" element={<ChoresAddModal />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
       </UserProvider>
     </React.StrictMode>
   );
-};
+}
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <RootComponent />

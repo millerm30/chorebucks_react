@@ -5,7 +5,7 @@ import Confetti from "react-confetti";
 const AddWishForm = ({ addWish }) => {
   const [title, setTitle] = useState("");
   const [points, setPoints] = useState("");
-  const [isActive, setIsActive] = useState(false);
+  const [isActive, setIsActive] = useState<boolean>(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();

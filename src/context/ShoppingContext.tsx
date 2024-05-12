@@ -26,7 +26,7 @@ const audioPurchase = new Audio(purchse);
 const audioNomoney = new Audio(nomoney);
 
 export const ShoppingProvider = ({ points, removePoints, children }) => {
-  const [cart , setCart] = useState(getInitalCart);
+  const [cart , setCart] = useState<CartItem[]>(getInitalCart);
   const [cartTotal, setcartTotal] = useState<number>(0);
   
   const addToCartHandler = (itemTitle: string, itemPoints: number) => {

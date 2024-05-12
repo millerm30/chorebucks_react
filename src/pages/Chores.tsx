@@ -18,7 +18,7 @@ const style = {
 };
 
 const Chores = () => {
-  const [isActive, setIsActive] = useState(false);
+  const [isActive, setIsActive] = useState<boolean>(false);
   const { chores, removeChore, completeChore } = useContext(ChoresContext);
 
   const navigate = useNavigate();

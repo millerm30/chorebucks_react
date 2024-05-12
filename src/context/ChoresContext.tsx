@@ -32,7 +32,7 @@ const audioSuccess = new Audio(tada);
 const audioFailure = new Audio(failure);
 
 export const ChoresProvider = ({ children, addPoints }) => {
-  const [chores, setChores] = useState(getInitialChores());
+  const [chores, setChores] = useState<Chore[]>(getInitialChores());
 
   useEffect(() => {
     const temp = JSON.stringify(chores);

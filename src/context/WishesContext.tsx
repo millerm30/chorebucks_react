@@ -45,7 +45,7 @@ const audioSuccess = new Audio(yay);
 
 export function WishesProvider({ children }) {
   const { addToCartHandler } = useContext(ShoppingContext);
-  const [wishes, setWishes] = useState(getInitialWishes);
+  const [wishes, setWishes] = useState<Wish[]>(getInitialWishes);
 
   const addWish = (title: string, points: number) => {
     audioAddWish.play();
