@@ -75,7 +75,7 @@ export function UserProvider({ children }) {
     localStorage.removeItem("user");
     setIsLoggedIn(!isLoggedIn);
     setUser(undefined);
-    window.location.href = "/";
+    window.location.href = "/chorebucks_react/";
   };
 
   return (
