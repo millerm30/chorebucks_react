@@ -37,7 +37,7 @@ export const RootComponent = () => {
   return (
     <React.StrictMode>
       <App points={points} addPoints={addPoints} removePoints={removePoints}>
-        <BrowserRouter>
+        <BrowserRouter basename="/chorebucks_react">
           <Routes>
             {isLoggedIn ? (
             <Route path="/" element={<Layout points={points} />} >
