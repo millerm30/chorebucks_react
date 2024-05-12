@@ -1,6 +1,16 @@
 import { FaTrashAlt } from "react-icons/fa";
 import { CartItem } from "../types";
 
+const style = {
+  mainContainer: `container flex flex-col w-4/5 justify-between items-center py-3 mx-auto border-b-2 border-gray-600`,
+  spanBoxOne: `container flex justify-between py-2`,
+  headingOne: `text-left text-lg`,
+  button: `text-2xl text-red-600`,
+  spanBoxTwo: `container flex justify-between my-auto`,
+  selectInput: `border-2 border-gray-600 rounded ml-2`,
+  headingTwo: `text-md`,
+};
+
 export const CartListItem = (
   { 
     wish, 
@@ -13,16 +23,6 @@ export const CartListItem = (
   }) => {
   const calculateNewWishTotal = (wish: CartItem) => {
     return wish.points * wish.quantity;
-  };
-
-  const style = {
-    mainContainer: `container flex flex-col w-4/5 justify-between items-center py-3 mx-auto border-b-2 border-gray-600`,
-    spanBoxOne: `container flex justify-between py-2`,
-    headingOne: `text-left text-lg`,
-    button: `text-2xl text-red-600`,
-    spanBoxTwo: `container flex justify-between my-auto`,
-    selectInput: `border-2 border-gray-600 rounded ml-2`,
-    headingTwo: `text-md`,
   };
 
   return (

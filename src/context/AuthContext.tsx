@@ -31,7 +31,7 @@ function getLoggedInUser() {
 
 export function UserProvider({ children }) {
   const [user, setUser] = useState(getLoggedInUser);
-  const [isLoggedIn, setIsLoggedIn] = useState(
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(
     getLoggedInUser()
   );
 

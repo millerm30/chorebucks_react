@@ -46,6 +46,9 @@ const style = {
 export default function MyModal() {
   const { addChore } = useContext(ChoresContext);
   const [choresList, setChoresList] = useState(getInitialNewChoresLocalStorage);
+  const [chore, setChore] = useState<string>("");
+  const [point, setPoint] = useState<number>(0);
+  const [label, setLabel] = useState<string>("");
   const navigate = useNavigate();
   const isOpen: boolean = true;
 
@@ -53,30 +56,26 @@ export default function MyModal() {
     navigate("/chores");
   };
 
-  const [chore, setChore] = useState("");
-  const [point, setPoint] = useState("");
-  const [label, setLabel] = useState("");
-
-  const handleChoresChange = (e) => {
-    setChore(e.target.value);
+  const handleChoresChange = (e: React.FormEvent<HTMLSelectElement>) => {
+    setChore(e.currentTarget.value);
   };
 
-  const handlePointChange = (e) => {
-    setPoint(e.target.value);
+  const handlePointChange = (e: React.FormEvent<HTMLInputElement>) => {
+    setPoint(Number(e.currentTarget.value));
   };
 
-  const handleNewChore = (e) => {
+  const handleNewChore = (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
     setChoresList([...choresList, { label: label, value: label, id: uuid() }]);
     setLabel("");
     toast(`${label} added to chore list!`, { icon: "👍" });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    addChore(chore, Number(point));
+    addChore(chore, point);
     setChore("");
-    setPoint("");
+    setPoint(0);
   };
 
   useEffect(() => {
@@ -156,7 +155,7 @@ export default function MyModal() {
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9 }}
                             type="submit"
-                            disabled={!chore}
+                            disabled={!chore || point === 0}
                             className={`${style.addChoreButton} ${
                               !chore
                                 ? "opacity-50 cursor-not-allowed"
