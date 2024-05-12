@@ -32,12 +32,10 @@ export const RootComponent = () => {
     localStorage.setItem("points", points.toString());
   }, [points]);
 
-  console.log(isLoggedIn);
-
   return (
     <React.StrictMode>
       <App points={points} addPoints={addPoints} removePoints={removePoints}>
-        <BrowserRouter basename="/chorebucks_react">
+        <BrowserRouter basename="/chorebucks_react/">
           <Routes>
             {isLoggedIn ? (
             <Route path="/" element={<Layout points={points} />} >
