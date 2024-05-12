@@ -6,25 +6,24 @@ import AuthContext from "../context/AuthContext";
 
 const Login = () => {
   const { login } = useContext(AuthContext);
-  const [showPassword, setShowPassword] = useState(false);
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [username, setUsername] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
 
-  const handleUsernameChange = (e) => {
-    setUsername(e.target.value);
+  const handleUsernameChange = (e: React.FormEvent<HTMLInputElement>) => {
+    setUsername(e.currentTarget.value);
   };
 
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
+  const handlePasswordChange = (e: React.FormEvent<HTMLInputElement>) => {
+    setPassword(e.currentTarget.value);
   };
 
-  const handleChangeEye = (e) => {
+  const handleChangeEye = (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
     setShowPassword(!showPassword);
   };
 
-  const handleSubmit = (e) => {
-    console.log("submitting");
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     login(username, password);
   };
